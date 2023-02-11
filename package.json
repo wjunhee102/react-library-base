@@ -1,0 +1,14 @@
+{
+  "name": "react-library-base",
+  "version": "0.0.1",
+  "description": "리액트 라이브러리 베이스입니다.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "lib"
+  ],
+  "author": "wjunhee102",
+  "license": "ISC"
+}
