@@ -10,7 +10,7 @@ const Button: React.FC<ButtonProps> = ({
   label
 }) => {
   return (
-    <button>
+    <button className="bg-green-400">
       {label}
     </button>
   );
