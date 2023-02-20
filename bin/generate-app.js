@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 const chalk = require("chalk");
 const fs = require("fs-extra");
 const { program } = require("commander");
@@ -32,8 +34,8 @@ function createTemplate(projectName) {
     }
 
     try {
-      fs.mkdir(projectPath);
-      fs.copy(dirPath, projectPath);
+      fs.mkdirSync(projectPath);
+      fs.copySync(dirPath, projectPath);
 
       resolve("create template!");
     } catch(e) {
@@ -43,9 +45,11 @@ function createTemplate(projectName) {
 }
 
 function setPackageJson(projectPath, projectName) {
-  return new Promise((resolve, reject) => {
 
-    const packageJsonPath = path.resolve(projectPath, "./package.json");
+  const packageJsonPath = path.resolve(projectPath, "./package.json");
+
+  return new Promise((resolve, reject) => {
+  
     const packageJson = fs.readJSONSync(packageJsonPath);
 
     if(packageJson) {
@@ -76,7 +80,7 @@ function setPackageJson(projectPath, projectName) {
     }) 
     
   }).catch((errorMessage) => {
-    return Promise.error(errorMessage);
+    return Promise.reject(errorMessage);
   })
 }
 
@@ -106,7 +110,9 @@ function createPakage() {
     .then((successMessage) => {
       
       setPackageJson(projectPath, projectName)
-      .then(resolve)
+      .then(() => {
+        resolve("Success");
+      })
       .catch(reject);
 
     })
