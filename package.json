@@ -1,8 +1,9 @@
 {
   "name": "@wjunhee102/react-library-base",
-  "version": "0.0.1",
+  "version": "0.0.9",
   "description": "리액트 라이브러리 베이스입니다.",
   "scripts": {
+    "test": "node ./bin/generate-app.js"
   },
   "bin": {
     "create-react-lib-base": "./bin/generate-app.js"
@@ -15,13 +16,14 @@
     "base"
   ],
   "license": "MIT",
-  "devDependencies": {
-  },
-  "peerDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/wjunhee102"
+  },
+  "dependencies": {
+    "chalk": "4.1.0",
+    "commander": "^10.0.0",
+    "fs-extra": "^11.1.0",
+    "shelljs": "^0.8.5",
+    "tmp": "^0.2.1"
   }
 }
